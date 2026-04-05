@@ -59,7 +59,7 @@ const ServicesSection: React.FC = () => {
               data-aos-delay="100"
             >
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-gray-900">
-                Combine <span className='text-[#FF7E28]'>creativity and strategy </span>to build solutions that <span className='text-[#FF7E28]'>actually work.</span>
+                Combine <span className='text-[#FF7E28]'>creativity and strategey </span>to build solutions that <span className='text-[#FF7E28]'>actually work.</span>
               </h2>
             </div>
 
