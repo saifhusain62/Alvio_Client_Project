@@ -19,13 +19,13 @@ const HeroSection: React.FC = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-gray-500 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl px-4">
+          <p className="text-gray-500 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl px-4 pt-5 font-mono">
             We Craft Experiences that connect brands with people and turn ideas into impact
           </p>
 
           {/* CTA Button */}
           <Link 
-            href="/contact"
+            to="/contact"
             className="bg-black/80 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base md:text-lg font-medium hover:bg-gray-800 transition-colors duration-300 mt-4 sm:mt-6"
           >
             Let's Create Together
@@ -41,13 +41,13 @@ const HeroSection: React.FC = () => {
             <div className="space-y-10">
               {/* Projects */}
               <div>
-                <p className="text-gray-500 text-sm sm:text-base mb-1">Projects</p>
+                <p className="text-gray-500 text-sm sm:text-base mb-1 font-mono">Projects</p>
                 <p className="text-black text-2xl sm:text-3xl md:text-4xl font-normal">More than 250</p>
               </div>
 
               {/* About */}
               <div>
-                <p className="text-gray-500 text-sm sm:text-base mb-1 ">About</p>
+                <p className="text-gray-500 text-sm sm:text-base mb-1 font-mono">About</p>
                 <p className="text-black text-2xl sm:text-3xl md:text-4xl font-normal">Since 2021</p>
               </div>
             </div>
@@ -91,8 +91,8 @@ const HeroSection: React.FC = () => {
 
           {/* Right Section - Description */}
           <div className="flex items-end float-end ">
-            <p className="text-gray-500 text-md sm:text-base md:text-lg leading-relaxed ">
-              From branding to UI/UX, from design to development. We bring ideas to life with creativity and precision.
+            <p className="text-gray-500 text-md sm:text-base md:text-lg leading-relaxed font-mono ">
+              From branding to UI/UX, from design to development. <span className='text-black'>We bring ideas to life with creativity and precision.</span>
             </p>
           </div>
         </div>
