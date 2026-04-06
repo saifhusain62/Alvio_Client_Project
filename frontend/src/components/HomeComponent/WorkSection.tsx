@@ -105,7 +105,7 @@ const WorkSection: React.FC = () => {
   return (
     <section className="relative w-full bg-white py-8">
       <div className="mx-auto max-w-[1650px] px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-[460px_1fr] min-h-[650px] gap-35">
+        <div className="grid grid-cols-1 lg:grid-cols-[460px_1fr] min-h-[650px] gap-34">
           
           {/* Left Panel */}
           <div
