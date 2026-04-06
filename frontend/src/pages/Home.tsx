@@ -3,6 +3,9 @@ import HeroSection from '../components/HomeComponent/HeroHome';
 import AboutHomeSection from '../components/HomeComponent/AboutHome'
 import HomeServicesSection from '../components/HomeComponent/HomeServices'
 import WorkSection from '../components/HomeComponent/WorkSection';
+import TeamSection from '../components/HomeComponent/TeamSection';
+import TestimonialsSection from '../components/HomeComponent/TestimonialsSection';
+
 
 
 const Home: React.FC = () => {
@@ -12,6 +15,8 @@ const Home: React.FC = () => {
     <AboutHomeSection/>
     <HomeServicesSection/>
     <WorkSection/>
+    <TeamSection/>
+    <TestimonialsSection/>
    </div>
   );
 };
