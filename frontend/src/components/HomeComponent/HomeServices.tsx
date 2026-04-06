@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ArrowUpRight } from 'lucide-react';
-import Sliderimg from '../../assets/sliderimg.png'
+import sliderImage from '../../assets/sliderimg.png';
 
 const ServicesSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -17,9 +17,9 @@ const ServicesSection: React.FC = () => {
   ];
 
   const images = [
-    Sliderimg,
-    Sliderimg,
-    Sliderimg
+    sliderImage,
+    sliderImage,
+    sliderImage
   ];
 
   useEffect(() => {
