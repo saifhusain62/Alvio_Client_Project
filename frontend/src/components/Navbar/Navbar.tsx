@@ -1,3 +1,4 @@
+// Navbar.tsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
@@ -10,7 +11,6 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Services dropdown items
   const servicesItems = [
     { label: 'Web Development', path: '/services/web-development' },
     { label: 'Mobile Apps', path: '/services/mobile-apps' },
@@ -18,7 +18,6 @@ const Navbar: React.FC = () => {
     { label: 'Digital Marketing', path: '/services/digital-marketing' },
   ];
 
-  // More dropdown items
   const moreItems = [
     { label: 'Blog', path: '/blog' },
     { label: 'Portfolio', path: '/portfolio' },
@@ -30,12 +29,10 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -47,33 +44,37 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md' : 'bg-white'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-white shadow-sm' : 'bg-white'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Left Logo */}
-            <Link to="/" className="flex-shrink-0">
-              <div className="flex items-center">
-                <img src={Logo} alt="" />
-              </div>
-            </Link>
+        {/* Main container with 1600px max-width and side borders */}
+        <div className="mx-auto max-w-[1600px] border-x border-gray-100">
+          
+          {/* Grid border system */}
+          <div className="flex items-center justify-between h-20 md:h-24 divide-x divide-gray-100 border-b border-gray-100">
+            
+            {/* Left Logo Section (1st Column Style) */}
+            <div className="flex-shrink-0 px-6 lg:px-10 h-full flex items-center min-w-[250px]">
+              <Link to="/" className="flex items-center">
+                <img src={Logo} alt="Logo" className="h-8 w-auto" />
+              </Link>
+            </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-1">
+            {/* Desktop Menu (Middle Content) */}
+            <div className="hidden lg:flex flex-grow items-center justify-center space-x-2 h-full">
               <Link
                 to="/"
-                className="px-4 py-2 text-gray-700 hover:text-[#FF7E28] transition-colors duration-200 font-medium"
+                className="px-5 py-2 text-gray-700 hover:text-[#FF7E28] transition-all duration-200 font-bold text-[14px] uppercase tracking-wider"
               >
                 Home
               </Link>
               
               <Link
                 to="/about"
-                className="px-4 py-2 text-gray-700 hover:text-[#FF7E28] transition-colors duration-200 font-medium"
+                className="px-5 py-2 text-gray-700 hover:text-[#FF7E28] transition-all duration-200 font-bold text-[14px] uppercase tracking-wider"
               >
-                About Us
+                About
               </Link>
 
               <DropdownMenu label="Services" items={servicesItems} />
@@ -82,30 +83,31 @@ const Navbar: React.FC = () => {
 
               <Link
                 to="/contact"
-                className="px-4 py-2 text-gray-700 hover:text-[#FF7E28] transition-colors duration-200 font-medium"
+                className="px-5 py-2 text-gray-700 hover:text-[#FF7E28] transition-all duration-200 font-bold text-[14px] uppercase tracking-wider"
               >
                 Contact
               </Link>
             </div>
 
-            {/* Right Logo (Desktop only) */}
-            <div className="hidden lg:block flex-shrink-0">
-             <img src={ALVIOLogo} alt="" />
+            {/* Right Side Logo/CTA Section */}
+            <div className="hidden lg:flex flex-shrink-0 px-10 h-full items-center justify-end min-w-[200px]">
+               <img src={ALVIOLogo} alt="ARVIO" className="h-6 w-auto opacity-80" />
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-              aria-label="Open menu"
-            >
-              <Menu className="w-6 h-6 text-gray-700" />
-            </button>
+            {/* Mobile Menu Button (Visible on Mobile) */}
+            <div className="lg:hidden flex items-center px-6">
+                <button
+                  onClick={() => setIsMobileMenuOpen(true)}
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                  aria-label="Open menu"
+                >
+                  <Menu className="w-6 h-6 text-gray-700" />
+                </button>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Component */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
@@ -113,8 +115,8 @@ const Navbar: React.FC = () => {
         moreItems={moreItems}
       />
 
-      {/* Spacer to prevent content from going under fixed navbar */}
-      <div className="h-16 md:h-20" />
+      {/* Spacer matching nav height to prevent content overlap */}
+      <div className="h-20 md:h-24" />
     </>
   );
 };

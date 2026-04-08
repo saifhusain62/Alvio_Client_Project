@@ -1,3 +1,4 @@
+// TestimonialsSection.tsx
 import React from "react";
 
 type Testimonial = {
@@ -60,70 +61,74 @@ const Stars = () => (
 
 const TestimonialsSection: React.FC = () => {
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto max-w-[1650px] px-4 py-10">
-        {/* No border wrapper */}
+    <section className="w-full bg-white overflow-hidden py-12">
+      
+      <div className="mx-auto max-w-[1600px] border-x border-gray-100">
+        
         <div className="bg-white">
-          {/* Header row (3 columns) */}
-          <div className="grid grid-cols-1 lg:grid-cols-3">
+          {/* Header row (3 columns) with borders */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 divide-x divide-gray-100 border-t border-gray-100">
             {/* Left header */}
-            <div className="p-10 lg:p-12">
-              <h2 className="font-['Inter_Tight'] text-[44px] md:text-[52px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#2d2d2d]">
-                People <span className="text-[#ff7a21]">Who Make</span>
-                <br />
-                <span className="text-[#ff7a21]">Ideas</span> Happen
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+             
+              <h2  data-aos="fade-down" 
+    className="font-sans text-[34px] md:text-[52px] lg:text-[62px] xl:text-[55px] font-bold leading-[1.1] tracking-[-0.03em] text-[#1a1a1a]">
+                Voice of <br />
+                <span className="text-[#ff7a21]">Our Happy</span> <br />
+                Partners
               </h2>
 
-              <p className="mt-10 max-w-[270px] font-mono text-[11px] leading-[1.6] text-[#a0a7b4]">
+              <p className="mt-8 max-w-[270px] font-mono text-[12px] leading-[1.6] text-gray-500">
                 Small team, big outcomes. We partner closely with clients to move fast
                 and make things that matter.
               </p>
             </div>
 
-            {/* Middle header: empty */}
-            <div className="hidden lg:block" />
+            {/* Middle header: empty decorative box */}
+            <div className="hidden lg:block bg-[#fcfcfc]/50" />
 
             {/* Right header */}
-            <div className="p-10 lg:p-12">
-              <p className="max-w-[320px] font-mono text-[11px] leading-[1.6] text-[#2d2d2d]">
-                Our work doesn’t end at delivery, it begins there. We craft experiences that
-                drive measurable results, and our clients notice the difference.
+            <div className="p-10 lg:p-14 flex items-end justify-start border-b lg:border-b-0 border-gray-100">
+              <p className="max-w-[320px] font-mono text-[13px] leading-relaxed text-[#2d2d2d] italic border-l-2 border-[#ff7a21] pl-6">
+                "Our work doesn’t end at delivery, it begins there. We craft experiences that
+                drive measurable results."
               </p>
             </div>
           </div>
 
-          {/* Cards grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3">
+          {/* Cards grid with Divide Borders */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 divide-x divide-y divide-gray-100 border-t border-b border-gray-100">
             {testimonials.map((t, idx) => {
               const row = Math.floor(idx / 3);
               const col = idx % 3;
-              const isGrey = (row + col) % 2 === 0; // checkerboard
-              const bg = isGrey ? "bg-[#f2f2f2]" : "bg-white";
+              const isGrey = (row + col) % 2 === 0; 
+              
+              const bg = isGrey ? "bg-[#fcfcfc]" : "bg-white";
 
               return (
                 <div
                   key={idx}
-                  className={`p-10 lg:p-12 min-h-[260px] ${bg}`}
+                  className={`p-10 lg:p-14 min-h-[320px] transition-all duration-300 hover:bg-[#fffaf7] group ${bg}`}
                 >
-                  <p className="text-[13px] leading-[1.7] text-[#2d2d2d]">
+                  <p className="text-[15px] leading-[1.8] text-[#2d2d2d] font-medium italic">
                     “{t.quote}”
                   </p>
 
-                  <div className="mt-7">
+                  <div className="mt-8">
                     <Stars />
                   </div>
 
-                  <div className="mt-5 flex items-center gap-3">
+                  <div className="mt-6 flex items-center gap-4">
                     <img
                       src={t.avatar}
                       alt={t.name}
-                      className="h-10 w-10 rounded-full object-cover"
+                      className="h-12 w-12 rounded-full object-cover border-2 border-white shadow-md transition-transform group-hover:scale-110"
                     />
                     <div>
-                      <p className="text-[12px] font-semibold text-[#2d2d2d] leading-none">
+                      <p className="text-[14px] font-bold text-[#2d2d2d] leading-none">
                         {t.name}
                       </p>
-                      <p className="mt-1 text-[11px] text-[#9aa3b2] leading-none">
+                      <p className="mt-1.5 text-[11px] font-mono text-gray-400 uppercase tracking-wider">
                         {t.title}
                       </p>
                     </div>
