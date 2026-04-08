@@ -6,6 +6,7 @@ import WorkSection from '../components/HomeComponent/WorkSection';
 import TeamSection from '../components/HomeComponent/TeamSection';
 import TestimonialsSection from '../components/HomeComponent/TestimonialsSection';
 import ContactSection from '../components/HomeComponent/ContactGridSection';
+import FooterSection from '../components/HomeComponent/FooterSection';
 
 
 
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
     <TeamSection/>
     <TestimonialsSection/>
     <ContactSection/>
+    <FooterSection/>
    </div>
   );
 };
