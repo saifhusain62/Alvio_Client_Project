@@ -1,87 +1,98 @@
+// FooterSection.tsx
 import React from "react";
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Logo from '../../assets/logo.png'
+import ALVIOLogo from '../../assets/ARVIO.png'
 
 const FooterSection: React.FC = () => {
   return (
-    <footer className="w-full bg-[#262626] text-white">
-      <div className="mx-auto max-w-[1650px] px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3">
+    <footer className="w-full bg-[#1a1a1a] text-white overflow-hidden">
+      {/* Main Grid Container matching the whole site style */}
+      <div className="mx-auto max-w-[1500px] border-x border-white/5">
+        
+        {/* Top Content Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/5 border-t border-white/5">
           
-          {/* LEFT */}
-          <div className="min-h-[410px] px-8 py-14 lg:px-10">
-            
-            <div className="mb-10 grid grid-cols-2 gap-2 w-fit">
-              <span className="h-[16px] w-[16px] bg-[#ff7a21]" />
-              <span className="h-[16px] w-[16px] bg-[#ff7a21]" />
-              <span className="h-[16px] w-[16px] bg-[#ff7a21]" />
-              <span className="h-[16px] w-[16px] bg-[#ff7a21]" />
+          {/* LEFT COLUMN: Brand & Socials */}
+          <div className="p-10 lg:p-14 flex flex-col justify-between min-h-[400px]">
+            <div>
+              {/* Logo dots matching brand accent */}
+              <div className="mb-10 grid grid-cols-2 gap-1.5 w-fit">
+                <img src={Logo} alt="Logo" className="h-8 w-auto" />
+              </div>
+
+              <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-6"># Get In Touch</h3>
+              <div className="space-y-2">
+                <p className="text-[18px] font-medium">+880 1234 567 890</p>
+                <p className="text-[18px] font-medium text-gray-400 hover:text-[#ff7a21] transition-colors cursor-pointer">
+                  hello@arvio.agency
+                </p>
+              </div>
+
+              <div className="mt-8 flex items-center gap-6">
+                <FaInstagram className="text-gray-500 hover:text-[#ff7a21] cursor-pointer transition-all hover:scale-110" size={20} />
+                <FaXTwitter className="text-gray-500 hover:text-[#ff7a21] cursor-pointer transition-all hover:scale-110" size={20} />
+                <FaLinkedin className="text-gray-500 hover:text-[#ff7a21] cursor-pointer transition-all hover:scale-110" size={20} />
+                <FaFacebook className="text-gray-500 hover:text-[#ff7a21] cursor-pointer transition-all hover:scale-110" size={20} />
+              </div>
             </div>
 
-            <h3 className="text-[17px] font-semibold">Get In Touch</h3>
-
-            <div className="mt-4 space-y-2">
-              <p className="text-[13px] text-[#d6d6d6]">+4328479083</p>
-              <p className="text-[13px] text-[#d6d6d6]">
-                agencyname@gmail.com
+            <div className="mt-12 pt-8 border-t border-white/5">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-gray-600">
+                Privacy Policy / Terms
               </p>
-            </div>
-
-            <div className="mt-8 flex items-center gap-5">
-              <FaInstagram className="hover:text-[#ff7a21] cursor-pointer transition" size={18} />
-              <FaXTwitter className="hover:text-[#ff7a21] cursor-pointer transition" size={18} />
-              <FaLinkedin className="hover:text-[#ff7a21] cursor-pointer transition" size={18} />
-              <FaFacebook className="hover:text-[#ff7a21] cursor-pointer transition" size={18} />
-            </div>
-
-            <div className="mt-28">
-              <p className="font-mono text-[12px] text-[#b4bcc8]">
-                Privacy Policy
-              </p>
-              <p className="mt-1 text-[13px]">2025</p>
+              <p className="mt-2 font-mono text-[12px] text-gray-400">© 2026 ARVIO Agency</p>
             </div>
           </div>
 
-          {/* MIDDLE */}
-          <div className="min-h-[410px] px-8 py-14 lg:px-10">
-            <h3 className="text-[17px] font-semibold">Stay Connected</h3>
-
-            <p className="mt-4 max-w-[320px] text-[13px] leading-[1.7] text-[#d6d6d6]">
+          {/* MIDDLE COLUMN: Newsletter */}
+          <div className="p-10 lg:p-14 flex flex-col justify-center bg-[#1d1d1d]/50">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-6"># Stay Connected</h3>
+            <p className="text-[20px] leading-snug font-medium mb-10 max-w-[280px]">
               Let&apos;s collaborate and bring your ideas to life.
             </p>
 
-            <div className="mt-8">
-              <label className="block text-[11px]">Email address*</label>
-              <input
-                type="email"
-                placeholder="noahrahman11@gmail.com"
-                className="mt-2 h-[38px] w-full max-w-[330px] rounded-md border border-[#4a4a4a] bg-[#313131] px-4 text-[12px] placeholder:text-[#9ca3af] outline-none focus:ring-2 focus:ring-white/10"
-              />
+            <div className="space-y-4">
+              <div className="group">
+                <label className="block font-mono text-[10px] uppercase text-gray-600 mb-2 ml-1">Email address*</label>
+                <div className="relative">
+                    <input
+                        type="email"
+                        placeholder="your@email.com"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#ff7a21] transition-all"
+                    />
+                    <button className="absolute right-2 top-2 bottom-2 bg-[#ff7a21] text-black text-[10px] font-bold px-4 rounded-lg uppercase tracking-wider hover:bg-white transition-colors">
+                        Join
+                    </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="relative min-h-[410px] px-8 py-14 lg:px-10">
-            <h3 className="text-[17px] font-semibold">Main Links</h3>
-
-            <div className="mt-5 grid grid-cols-2 gap-x-10 gap-y-2 max-w-[260px]">
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">Home</a>
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">Team Members</a>
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">About Us</a>
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">Testimonial</a>
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">Services</a>
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">Contact</a>
-              <a href="#" className="text-[13px] text-[#d6d6d6] hover:text-white">Projects</a>
+          {/* RIGHT COLUMN: Navigation & Large Branding */}
+          <div className="p-10 lg:p-14 flex flex-col justify-between relative min-h-[450px]">
+            <div>
+              <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-8"># Navigation</h3>
+              <div className="grid grid-cols-2 gap-x-12 gap-y-4">
+                {['Home', 'About Us', 'Services', 'Projects', 'Team', 'Testimonial', 'Contact'].map((item) => (
+                    <a key={item} href={`#${item.toLowerCase()}`} className="text-[14px] font-medium text-gray-400 hover:text-[#ff7a21] transition-colors">
+                        {item}
+                    </a>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-10 lg:absolute lg:bottom-6 lg:right-10">
-              <h2 className="font-['Inter_Tight'] text-[72px] leading-none font-extrabold tracking-[-0.06em] text-[#ff7a21] sm:text-[88px] lg:text-[110px]">
-                ARVIO
-              </h2>
+            {/* Giant Background Text effect */}
+            <div className="mt-12  px-10 h-full  justify-end min-w-[800px]">
+              <img src={ALVIOLogo} alt="ARVIO" className="h-30 w-auto opacity-100" />
             </div>
           </div>
 
         </div>
+
+        {/* Bottom decorative bar */}
+        <div className="h-1 bg-gradient-to-r from-[#ff7a21] via-[#ff7a21]/50 to-transparent opacity-20" />
       </div>
     </footer>
   );

@@ -1,156 +1,86 @@
 // HeroSection.tsx
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
-      easing: 'ease-out-cubic',
+      easing: "ease-out-cubic",
     });
   }, []);
 
   return (
-    <section className="min-h-screen w-full bg-white px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 mt-[-100px]">
-      <div className="max-w-[1600px] mx-auto h-full flex flex-col justify-between min-h-[calc(100vh-8rem)] mt-10">
-
-        {/* Center Content */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center space-y-6 sm:space-y-8 py-8 sm:py-12">
-
-          {/* Main Heading */}
-          <h1
-            data-aos="fade-down"
-            data-aos-delay="100"
-            data-aos-duration="1200"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-normal leading-tight"
-          >
-            <span className="text-[#FF7E28]"> Design</span> That Inspires
-            <br />
-            Strategy That <span className="text-[#FF7E28]"> Delivers</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            data-aos="fade-up"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-            className="text-gray-500 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl px-4 pt-5 font-mono"
-          >
-            We Craft Experiences that connect brands with people and turn ideas
-            into impact
-          </p>
-
-          {/* CTA Button */}
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="700"
-            data-aos-duration="800"
-          >
-            <Link
-              to="/contact"
-              className="bg-black/80 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base md:text-lg font-medium hover:bg-gray-800 transition-colors duration-300 mt-4 sm:mt-6 inline-block"
-            >
-              Let's Create Together
-            </Link>
+    <section className="relative min-h-screen w-full bg-white overflow-hidden">
+      
+      {/* 1600px container with side borders */}
+      <div className="mx-auto max-w-[1600px] min-h-screen border-x border-gray-100 relative">
+        
+        {/* Main grid layout: 4 columns and 5 rows */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-4 min-h-screen divide-x divide-y divide-gray-100 border-b border-gray-300">
+          
+          {/* ROW 2: Projects & Main Hero Part 1 */}
+          <div className="p-10 lg:p-14 flex flex-col justify-center" data-aos="fade-right">
+            <p className="text-gray-400 text-[11px] font-mono uppercase tracking-widest mb-2">Projects</p>
+            <p className="text-black text-2xl font-bold tracking-tighter">More than 250+</p>
           </div>
-        </div>
+          
+          {/* Hero Title (Spans 2 columns, 2 rows) */}
+         <div className="lg:col-span-2 lg:row-span-2 flex flex-col items-center justify-center text-center p-10">
+  <h1 
+    data-aos="fade-down" 
+    className="font-sans text-[34px] md:text-[52px] lg:text-[62px] xl:text-[75px] font-bold leading-[1.1] tracking-[-0.03em] text-[#1a1a1a]"
+  >
+    <span className="text-[#f97316]">Design</span> That Inspires
+    <br />
+    Strategy That <span className="text-[#f97316]">Delivers</span>
+  </h1>
+</div>
 
-        {/* Bottom Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mt-12 lg:mt-0">
+          <div className="hidden lg:block bg-[#fcfcfc]/30"></div>
 
-          {/* Left Section - Stats & Social */}
-          <div className="flex flex-col justify-between space-y-8">
+          {/* ROW 3: About & Main Hero Part 2 */}
+          <div className="p-10 lg:p-14 flex flex-col justify-center border-t border-gray-100 lg:border-t-0" data-aos="fade-right" data-aos-delay="100">
+            <p className="text-gray-400 text-[11px] font-mono uppercase tracking-widest mb-2">Since</p>
+            <p className="text-black text-2xl font-bold tracking-tighter">EST. 2012</p>
+          </div>
+          {/* (Title continues here from row 2 span) */}
+          <div className="hidden lg:block border-l border-gray-100"></div>
 
-            {/* Stats */}
-            <div className="space-y-10">
-
-              {/* Projects */}
-              <div
-                data-aos="fade-right"
-                data-aos-delay="200"
-                data-aos-duration="1000"
-              >
-                <p className="text-gray-500 text-sm sm:text-base mb-1 font-mono">
-                  Projects
-                </p>
-                <p className="text-black text-2xl sm:text-3xl md:text-4xl font-normal">
-                  More than 250
-                </p>
-              </div>
-
-              {/* About */}
-              <div
-                data-aos="fade-right"
-                data-aos-delay="400"
-                data-aos-duration="1000"
-              >
-                <p className="text-gray-500 text-sm sm:text-base mb-1 font-mono">
-                  About
-                </p>
-                <p className="text-black text-2xl sm:text-3xl md:text-4xl font-normal">
-                  Since 2021
-                </p>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div
-             
-              className="flex flex-wrap gap-4 sm:gap-6"
-            >
-              <a
-                href="https://behance.net"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-black hover:text-[#FF7E28] transition-colors duration-300 text-sm sm:text-base group"
-              >
-                <span className="font-medium">Behance</span>
-                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-              </a>
-
-              <a
-                href="https://dribbble.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-black hover:text-[#FF7E28] transition-colors duration-300 text-sm sm:text-base group"
-              >
-                <span className="font-medium">Dribbble</span>
-                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-              </a>
-
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-black hover:text-[#FF7E28] transition-colors duration-300 text-sm sm:text-base group"
-              >
-                <span className="font-medium">Twitter</span>
-                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-              </a>
+          {/* ROW 4: Socials & Subtext */}
+          <div className="p-10 lg:p-14 lg:col-span-1 flex items-end">
+            <div className="flex flex-col gap-4">
+               {['Behance', 'Dribbble', 'Twitter'].map((s) => (
+                 <a key={s} href="#" className="flex items-center gap-2 text-[13px] font-bold text-[#2d2d2d] hover:text-[#ff7a21] transition-all group">
+                   {s} <ArrowUpRight className="w-3 h-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                 </a>
+               ))}
             </div>
           </div>
 
-          {/* Middle Section - Spacer */}
-          <div className="hidden lg:block"></div>
-
-          {/* Right Section - Description */}
-          <div
-            data-aos="fade-left"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-            className="flex items-end float-end"
-          >
-            <p className="text-gray-500 text-md sm:text-base md:text-lg leading-relaxed font-mono">
-              From branding to UI/UX, from design to development.{' '}
-              <span className="text-black">
-                We bring ideas to life with creativity and precision.
-              </span>
-            </p>
+          <div className="lg:col-span-2 p-10 lg:p-14 flex flex-col items-center justify-center">
+             <p data-aos="fade-up" className="text-gray-400 font-mono text-[14px] leading-relaxed max-w-md text-center">
+               We craft digital experiences that connect brands with people and turn ideas into impact.
+             </p>
+             <div className="mt-8" data-aos="zoom-in" data-aos-delay="200">
+                <Link to="/contact" className="bg-[#2d2d2d] text-white px-10 py-4 rounded-full text-sm font-bold hover:bg-[#ff7a21] transition-all shadow-xl shadow-black/10">
+                  Let's Talk
+                </Link>
+             </div>
           </div>
+
+          <div className="p-10 lg:p-14 flex items-end" data-aos="fade-left">
+             <p className="text-[#2d2d2d] font-mono text-[12px] leading-relaxed italic border-l-2 border-[#ff7a21] pl-4">
+               We bring ideas to life with <span className="font-bold">creativity and precision.</span>
+             </p>
+          </div>
+
+         
+
         </div>
       </div>
     </section>
